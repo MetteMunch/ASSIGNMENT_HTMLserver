@@ -1,12 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   margin: 40px;
-  background-color:lightblue
+  background-color: lightblue;
 }
 .container {
   border: 5px solid #0077b6; /* flot blå kant */
   border-radius: 12px;
-  padding: 30px;  
+  padding: 30px;
 }
 
 input[type="date"] {

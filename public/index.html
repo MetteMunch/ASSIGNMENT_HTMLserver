@@ -8,66 +8,73 @@
   </head>
   <body>
     <div class="container">
-    <header>
-      <label for="birthdate">Indtast din fødselsdato: </label>
-      <input type="date" id="birthdate" />
-    </header>
+      <header>
+        <label for="birthdate">Indtast din fødselsdato: </label>
+        <input type="date" id="birthdate" />
+      </header>
 
-    <h1>FUN FACTS - TIL DAGS DATO HAR DU:</h1>
+      <h1>FUN FACTS - TIL DAGS DATO HAR DU:</h1>
 
-    <p>
-      Siddet på toilet i cirka:
-      <span class="result" id="toiletDays"></span> dage
-    </p>
+      <p>
+        Siddet på toilet i cirka:
+        <span class="result" id="toiletDays"></span> dage
+      </p>
 
-    <p>
-      Sovet i cirka:
-      <span class="result" id="sleepYears"></span> år
-    </p>
+      <p>
+        Sovet i cirka:
+        <span class="result" id="sleepYears"></span> år
+      </p>
 
-    <p>
-      Kigget på en skærm i cirka:
-      <span class="result" id="screenYears"></span> år
-    </p>
+      <p>
+        Kigget på en skærm i cirka:
+        <span class="result" id="screenYears"></span> år
+      </p>
 
-    <p>
-      Gået cirka
-      <span class="result" id="steps"></span> skridt, hvilket svarer til mere end
-      <span class="result" id="lakes"></span> gange rundt om søerne i København.
-    </p>
+      <p>
+        Gået cirka
+        <span class="result" id="steps"></span> skridt, hvilket svarer til mere
+        end <span class="result" id="lakes"></span> gange rundt om søerne i
+        København.
+      </p>
 
-    <script>
-      document.getElementById("birthdate").addEventListener("input", () => {
-        const birthdate = new Date(document.getElementById("birthdate").value);
-        const now = new Date();
-        if (isNaN(birthdate)) return;
+      <script>
+        document.getElementById("birthdate").addEventListener("input", () => {
+          const birthdate = new Date(
+            document.getElementById("birthdate").value,
+          );
+          const now = new Date();
+          if (isNaN(birthdate)) return;
 
-        const ageMs = now - birthdate; 
-        const ageMin = ageMs / 1000;
-        const ageDays = ageMin / (60 * 60 * 24); 
-        const ageYears = ageDays / 365.25; //approx
+          const ageMs = now - birthdate;
+          const ageMin = ageMs / 1000;
+          const ageDays = ageMin / (60 * 60 * 24);
+          const ageYears = ageDays / 365.25; //approx
 
-       
-        const toiletDays = Math.round(ageDays * 0.010416);  // calculation based on avg 15 minutes a day
-        console.log("her beregnes hvor mange dage man har siddet på et toilet", toiletDays);
+          const toiletDays = Math.round(ageDays * 0.010416); // calculation based on avg 15 minutes a day
+          console.log(
+            "her beregnes hvor mange dage man har siddet på et toilet",
+            toiletDays,
+          );
 
-        const sleepYears = Math.round(ageYears * 0.29166); // calculation based on avg 7 hours a day
+          const sleepYears = Math.round(ageYears * 0.29166); // calculation based on avg 7 hours a day
 
-        const screenYears = Math.round((ageYears - 8) * 0.3125); // calculation based on avg 7.5 hours a day from the 8th year
+          const screenYears = Math.round((ageYears - 8) * 0.3125); // calculation based on avg 7.5 hours a day from the 8th year
 
-        const steps = Math.round(ageDays * 6500); // calculation based on avg 6500 steps a day and avg 1390 steps per km 
+          const steps = Math.round(ageDays * 6500); // calculation based on avg 6500 steps a day and avg 1390 steps per km
 
-        const lakes = Math.round(steps / 8826.5); // one trip around the lakes ~ 6.35 km * 1390 steps
+          const lakes = Math.round(steps / 8826.5); // one trip around the lakes ~ 6.35 km * 1390 steps
 
-        // content to fields
-        document.getElementById("toiletDays").textContent = toiletDays.toLocaleString();
-        document.getElementById("sleepYears").textContent = sleepYears.toLocaleString();
-        document.getElementById("screenYears").textContent = screenYears.toLocaleString();
-        document.getElementById("steps").textContent = steps.toLocaleString();
-        document.getElementById("lakes").textContent = lakes.toLocaleString();
-      });
-    </script>
+          // content to fields
+          document.getElementById("toiletDays").textContent =
+            toiletDays.toLocaleString();
+          document.getElementById("sleepYears").textContent =
+            sleepYears.toLocaleString();
+          document.getElementById("screenYears").textContent =
+            screenYears.toLocaleString();
+          document.getElementById("steps").textContent = steps.toLocaleString();
+          document.getElementById("lakes").textContent = lakes.toLocaleString();
+        });
+      </script>
     </div>
   </body>
 </html>
-
